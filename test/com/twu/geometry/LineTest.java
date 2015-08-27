@@ -92,7 +92,7 @@ public class LineTest {
     }
 
     @Test
-    public void shouldNotBeEqualWhenLinesHaveDifferentX1AndX2ValuesAndOtherValuesAreSame() {
+    public void shouldNotBeEqualWhenX1OfLine1AndX2OfLine2AreDifferentButOtherValuesAreEqual() {
         Line line1=new Line(1,1,2,2);
         Line line2=new Line(2,2,2,1);
 
@@ -100,7 +100,15 @@ public class LineTest {
     }
 
     @Test
-    public void shouldNotBeEqualWhenLinesHaveDifferentY1AndY2ValuesAndOtherValuesAreSame() {
+    public void shouldNotBeEqualWhenY1OfLineAndY2OfLine2AreDifferentButOtherValuesAreEqual() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=new Line(2,2,1,2);
+
+        Assert.assertNotEquals(line1,line2);
+    }
+
+    @Test
+    public void shouldNotBeEqualWhenX2OfLine1DifferFromLine2OfX1andOtherValuesAreSame() {
         Line line1=new Line(1,1,2,2);
         Line line2=new Line(2,2,1,2);
 
