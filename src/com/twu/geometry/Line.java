@@ -12,6 +12,8 @@ public class Line {
     }
 
     public double length() {
+        if(y1==y2)
+            return sqrt(pow(x2 - x1,2));
         return 0;
     }
 }
