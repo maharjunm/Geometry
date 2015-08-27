@@ -43,4 +43,12 @@ public class LineTest {
 
         Assert.assertEquals(line,line);
     }
+    
+    @Test
+    public void shouldNotBeEqualWhenLineComparesWithANull() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=null;
+
+        Assert.assertNotEquals(line1,line2);
+    }
 }

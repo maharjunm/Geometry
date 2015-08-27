@@ -19,6 +19,8 @@ public class Line {
 
     @Override
     public boolean equals(Object other) {
+        if(other==null)
+            return false;
         return true;
     }
 
