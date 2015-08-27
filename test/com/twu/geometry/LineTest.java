@@ -60,9 +60,17 @@ public class LineTest {
     }
 
     @Test
-    public void shouldNotBeEqualWhenLineWithOtherLineWhichHasX1ValueAsSameAndOtherAsSame() {
+    public void shouldNotBeEqualWhenLineWithOtherLineWhichHasX1ValuesAsDifferentAndOtherAsSame() {
         Line line1=new Line(1,1,2,2);
         Line line2=new Line(0,1,2,2);
+
+        Assert.assertNotEquals(line1,line2);
+    }
+
+    @Test
+    public void shouldNotBeEqualWhenLineWithOtherLineWhichHasY1ValuesAsDifferentAndOtherAsSame() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=new Line(1,2,2,2);
 
         Assert.assertNotEquals(line1,line2);
     }
