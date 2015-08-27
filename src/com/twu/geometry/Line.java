@@ -23,6 +23,9 @@ public class Line {
             return false;
         if(!(other instanceof Line))
             return false;
+        Line otherLine=(Line)other;
+        if(x1!=otherLine.x1)
+            return false;
         return true;
     }
 
