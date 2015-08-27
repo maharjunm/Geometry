@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_geometry" default="compile.module.geometry">
+  <dirname property="module.geometry.basedir" file="${ant.file.module_geometry}"/>
+  
+  <property name="module.jdk.home.geometry" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.geometry" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.geometry" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.geometry" value="-encoding UTF-8 -source 8 ${compiler.args}"/>
+  
+  <property name="geometry.output.dir" value="${module.geometry.basedir}/out/production/Geometry"/>
+  <property name="geometry.testoutput.dir" value="${module.geometry.basedir}/out/test/Geometry"/>
+  
+  <path id="geometry.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="geometry.module.production.classpath">
+    <path refid="${module.jdk.classpath.geometry}"/>
+  </path>
+  
+  <path id="geometry.runtime.production.module.classpath">
+    <pathelement location="${geometry.output.dir}"/>
+  </path>
+  
+  <path id="geometry.module.classpath">
+    <path refid="${module.jdk.classpath.geometry}"/>
+    <pathelement location="${geometry.output.dir}"/>
+    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${idea.home}/lib/hamcrest-library-1.3.jar"/>
+    <pathelement location="${idea.home}/lib/junit-4.11.jar"/>
+  </path>
+  
+  <path id="geometry.runtime.module.classpath">
+    <pathelement location="${geometry.testoutput.dir}"/>
+    <pathelement location="${geometry.output.dir}"/>
+    <pathelement location="${idea.home}/lib/hamcrest-core-1.3.jar"/>
+    <pathelement location="${idea.home}/lib/hamcrest-library-1.3.jar"/>
+    <pathelement location="${idea.home}/lib/junit-4.11.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.geometry">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.geometry">
+    <patternset refid="excluded.from.module.geometry"/>
+  </patternset>
+  
+  <path id="geometry.module.sourcepath">
+    <dirset dir="${module.geometry.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  <path id="geometry.module.test.sourcepath">
+    <dirset dir="${module.geometry.basedir}">
+      <include name="test"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.geometry" depends="compile.module.geometry.production,compile.module.geometry.tests" description="Compile module Geometry"/>
+  
+  <target name="compile.module.geometry.production" depends="register.custom.compilers" description="Compile module Geometry; production classes">
+    <mkdir dir="${geometry.output.dir}"/>
+    <javac2 destdir="${geometry.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.geometry}/javac">
+      <compilerarg line="${compiler.args.geometry}"/>
+      <bootclasspath refid="geometry.module.bootclasspath"/>
+      <classpath refid="geometry.module.production.classpath"/>
+      <src refid="geometry.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.geometry"/>
+    </javac2>
+    
+    <copy todir="${geometry.output.dir}">
+      <fileset dir="${module.geometry.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.geometry.tests" depends="register.custom.compilers,compile.module.geometry.production" description="compile module Geometry; test classes" unless="skip.tests">
+    <mkdir dir="${geometry.testoutput.dir}"/>
+    <javac2 destdir="${geometry.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.geometry}/javac">
+      <compilerarg line="${compiler.args.geometry}"/>
+      <bootclasspath refid="geometry.module.bootclasspath"/>
+      <classpath refid="geometry.module.classpath"/>
+      <src refid="geometry.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.geometry"/>
+    </javac2>
+    
+    <copy todir="${geometry.testoutput.dir}">
+      <fileset dir="${module.geometry.basedir}/test">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.geometry" description="cleanup module">
+    <delete dir="${geometry.output.dir}"/>
+    <delete dir="${geometry.testoutput.dir}"/>
+  </target>
+</project>
