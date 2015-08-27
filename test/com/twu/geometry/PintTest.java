@@ -7,7 +7,7 @@ public class PintTest {
 
     @Test
     public void shouldBeTrueWhenCompareWithItself(){
-        Point point=new Point();
+        Point point=new Point(1.0,2.0);
         Assert.assertEquals(point,point);
     }
 }
