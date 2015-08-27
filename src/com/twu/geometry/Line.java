@@ -21,6 +21,8 @@ public class Line {
     public boolean equals(Object other) {
         if(other==null)
             return false;
+        if(!(other instanceof Line))
+            return false;
         return true;
     }
 
