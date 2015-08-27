@@ -26,6 +26,8 @@ public class Line {
         Line otherLine=(Line)other;
         if(x1==otherLine.x1 && y1==otherLine.y1 && x2==otherLine.x2 && y2==otherLine.y2)
             return true;
+        if(x1==otherLine.x2)
+            return true;
         return false;
     }
 
