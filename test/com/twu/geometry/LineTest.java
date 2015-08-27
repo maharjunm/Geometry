@@ -138,4 +138,12 @@ public class LineTest {
 
         Assert.assertEquals(line1,line2);
     }
+
+    @Test
+    public void shouldNotBeEqualWhenY1OfLine1AndY2OfLineAreNotSameAndRestOfThemAreSame() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=new Line(2,2,1,2);
+
+        Assert.assertNotEquals(line1,line2);
+    }
 }
