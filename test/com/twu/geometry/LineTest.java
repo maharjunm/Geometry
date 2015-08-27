@@ -20,4 +20,11 @@ public class LineTest {
 
         Assert.assertEquals(1.0,actual,0.2d);
     }
+    @Test
+    public void shouldCalculateLengthForALineWhichLiesOnYAxis() {
+        Line line=new Line(0,1,0,2);
+        double actual=line.length();
+
+        Assert.assertEquals(1.0,actual,0.2d);
+    }
 }
