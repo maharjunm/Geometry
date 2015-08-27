@@ -122,4 +122,12 @@ public class LineTest {
 
         Assert.assertNotEquals(line1,line2);
     }
+
+    @Test
+    public void shouldBeEqualWhenLinesAreEqual() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=new Line(1,1,2,2);
+
+        Assert.assertEquals(line1,line2);
+    }
 }
