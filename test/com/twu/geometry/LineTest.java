@@ -36,4 +36,11 @@ public class LineTest {
 
         Assert.assertEquals(Math.sqrt(2),actual,0.2d);
     }
+
+    @Test
+    public void shouldBeEqualWhenLineComparesItself() {
+        Line line=new Line(1,1,2,2);
+
+        Assert.assertEquals(line,line);
+    }
 }

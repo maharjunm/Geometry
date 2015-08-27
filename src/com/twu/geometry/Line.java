@@ -15,4 +15,11 @@ public class Line {
 
         return sqrt(pow(x2 - x1,2)+pow(y2 - y1, 2));
     }
+
+
+    @Override
+    public boolean equals(Object other) {
+        return true;
+    }
+
 }
