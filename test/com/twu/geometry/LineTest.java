@@ -74,4 +74,12 @@ public class LineTest {
 
         Assert.assertNotEquals(line1,line2);
     }
+
+    @Test
+    public void shouldNotBeEqualWhenLineWithOtherLineWhichHasX2ValuesAsDifferentAndOtherAsSame() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=new Line(1,1,3,2);
+
+        Assert.assertNotEquals(line1,line2);
+    }
 }
