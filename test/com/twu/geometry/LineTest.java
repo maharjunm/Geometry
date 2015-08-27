@@ -110,7 +110,15 @@ public class LineTest {
     @Test
     public void shouldNotBeEqualWhenX2OfLine1DifferFromLine2OfX1andOtherValuesAreSame() {
         Line line1=new Line(1,1,2,2);
-        Line line2=new Line(2,2,1,2);
+        Line line2=new Line(1,2,1,1);
+
+        Assert.assertNotEquals(line1,line2);
+    }
+
+    @Test
+    public void shouldNotBeEqualWhenY2OfLine1DifferFromLine2OfY1andOtherValuesAreSame() {
+        Line line1=new Line(1,1,2,2);
+        Line line2=new Line(2,1,1,1);
 
         Assert.assertNotEquals(line1,line2);
     }
