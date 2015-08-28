@@ -3,18 +3,16 @@ package com.twu.geometry;
 import static java.lang.Math.*;
 
 public class Line {
-    private double x1, y1, x2, y2;
+    private Point startPoint, endPoint;
 
     public Line(double x1, double y1, double x2, double y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+        startPoint = new Point(x1, y1);
+        endPoint = new Point(x2, y2);
     }
 
     public double length() {
 
-        return sqrt(squareDifference(x2, x1) + squareDifference(y2, y1));
+        return sqrt(squareDifference(endPoint.getX(), startPoint.getX()) + squareDifference(endPoint.getY(), startPoint.getY()));
     }
 
     private double squareDifference(double value1, double value2) {
@@ -31,12 +29,12 @@ public class Line {
     }
 
     private boolean compareLineWithCoordinatePairsInterchangibly(Line otherLine) {
-        return compareLineWithCoordinatePairs(otherLine.x1, otherLine.y1, otherLine.x2, otherLine.y2) ||
-                compareLineWithCoordinatePairs(otherLine.x2, otherLine.y2, otherLine.x1, otherLine.y1);
+        return compareLineWithCoordinatePairs(otherLine.startPoint, otherLine.endPoint) ||
+                compareLineWithCoordinatePairs(otherLine.endPoint, otherLine.startPoint);
     }
 
-    private boolean compareLineWithCoordinatePairs(double otherX1, double otherY1, double otherX2, double otherY2) {
-        return x1 == otherX1 && y1 == otherY1 && x2 == otherX2 && y2 == otherY2;
+    private boolean compareLineWithCoordinatePairs(Point startPoint, Point endPoint) {
+        return this.startPoint.equals(startPoint)&& this.endPoint.equals(endPoint);
     }
 
 }
