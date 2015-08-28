@@ -11,15 +11,15 @@ public class Point {
 
     @Override
     public boolean equals(Object other) {
-        if (other == null)
-            return false;
-        if (!(other instanceof Point))
+        if (!(other instanceof Point) || other == null)
             return false;
         if (other == this)
             return true;
         Point otherPoint = (Point) other;
-        if (x == otherPoint.x && y == otherPoint.y)
-            return true;
-        return false;
+        return comparePoints(otherPoint);
+    }
+
+    private boolean comparePoints(Point otherPoint) {
+        return x == otherPoint.x && y == otherPoint.y;
     }
 }
