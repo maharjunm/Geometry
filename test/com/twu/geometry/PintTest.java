@@ -17,4 +17,10 @@ public class PintTest {
         Point point2=null;
         Assert.assertNotEquals(point1,point2);
     }
+
+    @Test
+    public void shouldNotBeEqualWhenCompareWithOtherInstance(){
+        Point point1=new Point(1.0,2.0);
+        Assert.assertNotEquals(point1,2);
+    }
 }
