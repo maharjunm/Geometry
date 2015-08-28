@@ -23,4 +23,11 @@ public class PintTest {
         Point point1=new Point(1.0,2.0);
         Assert.assertNotEquals(point1,2);
     }
+
+    @Test
+    public void shouldNotBeEqualWhenXisNotEqual(){
+        Point point1=new Point(1.0,2.0);
+        Point point2=new Point(2.0,2.0);
+        Assert.assertNotEquals(point1,point2);
+    }
 }
