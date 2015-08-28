@@ -14,7 +14,7 @@ public class Point {
         if(other==this)
             return true;
         Point otherPoint=(Point)other;
-        if(x==otherPoint.x)
+        if(x==otherPoint.x && y==otherPoint.y)
             return true;
         return false;
     }
