@@ -14,7 +14,7 @@ public class PintTest {
     }
 
     @Test
-    public void shouldNotBeEqualWhenCompareWithNullPoint(){
+    public void shouldNotBeEqualWhenCompareWithNullPointModified(){
         Point point1=new Point(1.0,2.0);
         Point point2=null;
         assertNotEquals(point1, point2);
