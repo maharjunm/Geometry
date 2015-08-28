@@ -39,4 +39,11 @@ public class PintTest {
         Point point2=new Point(1.0,3.0);
         assertNotEquals(point1, point2);
     }
+
+    @Test
+    public void shouldBeEqualWhenBothHasSamePoints(){
+        Point point1=new Point(1.0,2.0);
+        Point point2=new Point(1.0,2.0);
+        assertEquals(point1, point2);
+    }
 }

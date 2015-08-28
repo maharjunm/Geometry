@@ -13,6 +13,9 @@ public class Point {
     public boolean equals(Object other){
         if(other==this)
             return true;
+        Point otherPoint=(Point)other;
+        if(x==otherPoint.x)
+            return true;
         return false;
     }
 }
