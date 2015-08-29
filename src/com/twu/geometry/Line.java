@@ -12,12 +12,9 @@ public class Line {
 
     public double length() {
 
-        return sqrt(squareDifference(endPoint.getX(), startPoint.getX()) + squareDifference(endPoint.getY(), startPoint.getY()));
+        return startPoint.distanceFrom(endPoint);
     }
 
-    private double squareDifference(double value1, double value2) {
-        return pow(value1 - value2, 2);
-    }
 
 
     @Override
