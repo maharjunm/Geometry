@@ -3,6 +3,7 @@ package com.twu.geometry;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static java.lang.Math.*;
 import static org.junit.Assert.*;
 
 public class PintTest {
@@ -73,5 +74,12 @@ public class PintTest {
         Point point1 = new Point(0.0, 1.0);
         Point point2 = new Point(0.0, 2.0);
         assertEquals(1.0, point1.distanceFrom(point2), 0.2d);
+    }
+
+    @Test
+    public void shouldReturnDifferenceBetweenThePoints() {
+        Point point1 = new Point(1.0, 1.0);
+        Point point2 = new Point(2.0, 2.0);
+        assertEquals(sqrt(2.0), point1.distanceFrom(point2), 0.2d);
     }
 }

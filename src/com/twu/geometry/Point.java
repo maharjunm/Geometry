@@ -34,10 +34,6 @@ public class Point {
     }
 
     public double distanceFrom(Point point1) {
-        if(y==point1.y)
-            return sqrt(pow(x-point1.x,2));
-        if(x==point1.x)
-            return sqrt(pow(y-point1.y,2));
-        return 0;
+        return sqrt(pow(x-point1.x,2)+pow(y-point1.y,2));
     }
 }
