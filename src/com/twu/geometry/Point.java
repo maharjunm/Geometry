@@ -19,15 +19,19 @@ public class Point {
 
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Point) || other == null)
-            return false;
         if (other == this)
             return true;
+        if (other == null || !(other instanceof Point))
+            return false;
         Point otherPoint = (Point) other;
         return comparePoints(otherPoint);
     }
 
     private boolean comparePoints(Point otherPoint) {
         return x == otherPoint.x && y == otherPoint.y;
+    }
+
+    public double distanceFrom(Point point1) {
+        return 0;
     }
 }
