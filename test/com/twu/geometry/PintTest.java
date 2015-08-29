@@ -58,6 +58,13 @@ public class PintTest {
     @Test
     public void shouldReturnZeroBtweenSamePoints() {
         Point point1 = new Point(1.0, 2.0);
-        assertEquals(0.0,point1.distanceFrom(point1),0.2d);
+        assertEquals(0.0, point1.distanceFrom(point1), 0.2d);
+    }
+
+    @Test
+    public void shouldReturnDifferenceOfXCoordiantesIfTheyAreOnTheXAxis() {
+        Point point1 = new Point(1.0, 0.0);
+        Point point2 = new Point(2.0, 0.0);
+        assertEquals(1.0, point1.distanceFrom(point2), 0.2d);
     }
 }

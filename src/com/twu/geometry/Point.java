@@ -1,5 +1,7 @@
 package com.twu.geometry;
 
+import static java.lang.Math.*;
+
 public class Point {
 
     private double x, y;
@@ -32,6 +34,8 @@ public class Point {
     }
 
     public double distanceFrom(Point point1) {
+        if(y==point1.y)
+            return sqrt(pow(x-point1.x,2));
         return 0;
     }
 }
