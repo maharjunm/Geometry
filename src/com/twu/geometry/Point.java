@@ -26,6 +26,15 @@ public class Point {
     }
 
     public double distanceFrom(Point point1) {
-        return sqrt(pow(x-point1.x,2)+pow(y-point1.y,2));
+
+        return sqrt(pow(x - point1.x, 2) + pow(y - point1.y, 2));
+    }
+
+    @Override
+    public int hashCode() {
+        double hash = 7;
+        hash = hash * 7 + this.x;
+        hash = hash * 7 + this.y;
+        return (int) hash;
     }
 }

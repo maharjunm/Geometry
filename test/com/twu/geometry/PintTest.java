@@ -89,7 +89,14 @@ public class PintTest {
     public void shouldReturnDifferenceBetweenThePoints() {
         Point point1 = new Point(1.0, 1.0);
         Point point2 = new Point(2.0, 2.0);
-        
+
         assertEquals(sqrt(2.0), point1.distanceFrom(point2), 0.2d);
+    }
+
+    @Test
+    public void shouldReturnTrueForHashForTheSamePoint() {
+        Point point1 = new Point(1.0, 1.0);
+
+        assertEquals(point1.hashCode(),point1.hashCode());
     }
 }
