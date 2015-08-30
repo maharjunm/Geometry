@@ -107,4 +107,12 @@ public class PintTest {
 
         assertNotEquals(point1.hashCode(), point2.hashCode());
     }
+
+    @Test
+    public void shouldNotBeEqualForTheDIfferentXValues() {
+        Point point1 = new Point(1.0, 1.0);
+        Point point2 = new Point(3.0, 1.0);
+
+        assertNotEquals(point1.hashCode(), point2.hashCode());
+    }
 }
