@@ -97,6 +97,14 @@ public class PintTest {
     public void shouldReturnTrueForHashForTheSamePoint() {
         Point point1 = new Point(1.0, 1.0);
 
-        assertEquals(point1.hashCode(),point1.hashCode());
+        assertEquals(point1.hashCode(), point1.hashCode());
+    }
+
+    @Test
+    public void shouldNotBeEqualForTheDIfferentYValues() {
+        Point point1 = new Point(1.0, 1.0);
+        Point point2 = new Point(1.0, 3.0);
+
+        assertNotEquals(point1.hashCode(), point2.hashCode());
     }
 }
