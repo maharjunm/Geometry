@@ -34,6 +34,7 @@ public class Point {
     public int hashCode() {
         double hash = 7;
         int y1=-10;
+        int x1=-10;
         hash = hash * 7 + this.x;
         hash = hash * 7 + this.y;
         return (int) hash;
