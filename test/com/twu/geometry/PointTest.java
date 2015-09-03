@@ -6,7 +6,7 @@ import org.junit.Test;
 import static java.lang.Math.*;
 import static org.junit.Assert.*;
 
-public class PintTest {
+public class PointTest {
 
     @Test
     public void shouldBeEqualWhenCompareWithItself() {

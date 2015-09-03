@@ -1,4 +1,4 @@
-<project>
+<project name="Geometry">
 
   <target name="clean">
     <delete dir="build"/>
@@ -6,7 +6,7 @@
 
   <target name="compile">
     <mkdir dir="build"/>
-    <javac srcdir="src;test" destdir="build">
+    <javac srcdir="src;test" destdir="out">
 
       <classpath>
         <pathelement path="lib/hamcrest-library-1.3.jar"/>
@@ -17,16 +17,16 @@
   </target>
 
   <target name="run">
-    <junit printsummary="yes" haltonfailure="true" outputtoformatters="true">
+    <junit printsummary="yes" outputtoformatters="true">
       <classpath>
         <pathelement path="lib/hamcrest-library-1.3.jar"/>
         <pathelement path="lib/hamcrest-core-1.3.jar"/>
         <pathelement location="lib/junit-4.11.jar"/>
-        <pathelement location="build"/>
+        <pathelement location="out"/>
       </classpath>
       <batchtest fork="yes">
         <fileset dir="test">
-          <include name="**/*Test*.java"/>
+            <include name="**/*Test*.java"/>
         </fileset>
       </batchtest>
       <formatter type="plain" usefile="false"/>
