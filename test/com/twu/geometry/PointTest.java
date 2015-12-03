@@ -20,7 +20,7 @@ public class PointTest {
         Point point1 = new Point(1.0, 2.0);
         Point point2 = null;
 
-        assertNotEquals(point1, point2);
+        assertEquals(point1, point2);
     }
 
     @Test
